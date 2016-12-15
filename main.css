@@ -1,7 +1,10 @@
+body
+{ background-color: #c1c1c1; }
 .main_button
 {
     width: 100px;
     height: 100px;
+    display: inline-block;
 }
 
 #b1
