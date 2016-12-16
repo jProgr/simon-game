@@ -1,5 +1,11 @@
 body
-{ background-color: #c1c1c1; }
+{ background-color: #292f33; }
+
+#main
+{
+    margin-top: 10%;
+    text-align: center;
+}
 
 .main_button
 {
@@ -12,12 +18,13 @@ button
 {
     background-color: transparent;
     border: none;
+    margin: 2em;
+    color: #fa7921;
+    font-family: 'Arvo', serif;
 }
 
 #strict_mode
-{
-    border-bottom: thin solid transparent;
-}
+{ border-bottom: thin solid transparent; }
 
 #start_game
 {
