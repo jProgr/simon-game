@@ -37,7 +37,7 @@ function player_move()
         {
             if (player_sequence.length === sequence.length)
             {
-                if (player_sequence.length === 3)
+                if (player_sequence.length === 20)
                 { show_player_win(); setTimeout(start_game, 1000); }
                 else
                 {
