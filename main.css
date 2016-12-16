@@ -1,5 +1,6 @@
 body
 { background-color: #c1c1c1; }
+
 .main_button
 {
     width: 100px;
@@ -7,14 +8,14 @@ body
     display: inline-block;
 }
 
-#b1
+#b0
 { background-color: #3e92cc; }
 
-#b2
+#b1
 { background-color: #29648e; }
 
-#b3
+#b2
 { background-color: #183e59; }
 
-#b4
+#b3
 { background-color: #16374f; }
