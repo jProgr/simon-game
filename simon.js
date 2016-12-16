@@ -2,10 +2,12 @@
 var game_buttons = [];
 for (var i=0; i<=3; i++) { game_buttons.push(document.getElementById("b" + i)); }
 var start_button = document.getElementById("start_game");
+var strict_button = document.getElementById("strict_mode");
 
 var sequence = [];
 var game_running = false;
 var player_sequence = [];
+var strict_mode = false;
 
 // Game logic
 
@@ -37,8 +39,12 @@ function player_move()
         }
         else
         {
-            player_sequence = [];
-            show_sequence();
+            if (strict_mode) { start_game(); }
+            else
+            {
+                player_sequence = [];
+                show_sequence();
+            }
             console.log("Wrong");
         }
     }
@@ -62,6 +68,9 @@ function record_player_sequence(button_pressed)
 function check_sequence(step_to_check)
 { return step_to_check === sequence[player_sequence.length - 1]; }
 
+function toggle_strict_mode()
+{ strict_mode = !strict_mode; }
+
 // UI
 
 function lightup(button)
@@ -77,6 +86,12 @@ function show_sequence()
     sequence.forEach((step, index) => { setTimeout(() => { lightup(game_buttons[step]); }, 800 * (index + 1)); });
 }
 
+function strict_mode_indicator()
+{
+    strict_button.style.borderBottomColor = (strict_mode) ? "#997589" : "transparent";
+}
+
 start_button.addEventListener("click", start_game, false);
+strict_button.addEventListener("click", () => { toggle_strict_mode(); strict_mode_indicator(); }, false);
 game_buttons.forEach((button) => { button.addEventListener("click", lightup, false); });
 game_buttons.forEach((button) => { button.addEventListener("click", player_move, false); });

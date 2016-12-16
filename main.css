@@ -8,6 +8,17 @@ body
     display: inline-block;
 }
 
+button
+{
+    background-color: transparent;
+    border: none;
+}
+
+#strict_mode
+{
+    border-bottom: thin solid transparent;
+}
+
 #b0
 { background-color: #3e92cc; }
 
