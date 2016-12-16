@@ -35,7 +35,17 @@ function player_move()
     {
         if (check_sequence(player_sequence[player_sequence.length - 1]))
         {
-            if (player_sequence.length === sequence.length) { generate_step(); show_sequence(); player_sequence = []; console.log("next move"); }
+            if (player_sequence.length === sequence.length)
+            {
+                if (player_sequence.length === 3)
+                { show_player_win(); setTimeout(start_game, 1000); }
+                else
+                {
+                    generate_step();
+                    show_sequence();
+                    player_sequence = [];
+                }
+            }
         }
         else
         {
@@ -45,7 +55,7 @@ function player_move()
                 player_sequence = [];
                 show_sequence();
             }
-            console.log("Wrong");
+            show_wrong_move();
         }
     }
     
@@ -89,6 +99,19 @@ function show_sequence()
 function strict_mode_indicator()
 {
     strict_button.style.borderBottomColor = (strict_mode) ? "#997589" : "transparent";
+}
+
+function show_player_win()
+{
+    start_button.style.borderBottomColor = "#769975";
+    start_button.style.borderTopColor = "#769975";
+    setTimeout(() => { start_button.style.borderBottomColor = "transparent"; start_button.style.borderTopColor = "transparent"; }, 500);
+}
+
+function show_wrong_move()
+{
+    start_button.style.borderBottomColor = "#997675";
+    setTimeout(() => { start_button.style.borderBottomColor = "transparent"; }, 500);
 }
 
 start_button.addEventListener("click", start_game, false);
